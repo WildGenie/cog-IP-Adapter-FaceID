@@ -24,7 +24,9 @@ class Predictor(BasePredictor):
         # Get ip-adapter-faceid model
         if not os.path.exists("ip-cache/ip-adapter-faceid_sd15.bin"):
             os.makedirs(ip_cache)
-            os.system(f"wget -O ip-cache/ip-adapter-faceid_sd15.bin https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sd15.bin")
+            os.system(
+                "wget -O ip-cache/ip-adapter-faceid_sd15.bin https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid_sd15.bin"
+            )
         # Face embedding
         self.app = FaceAnalysis(name="buffalo_l", providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
         # SD
